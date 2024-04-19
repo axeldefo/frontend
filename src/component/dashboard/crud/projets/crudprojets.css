@@ -1,17 +1,21 @@
 .crud-projets-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 0.7fr 1.3fr;
   padding: 0 5%;
   padding-top: -50px;
   overflow: hidden;
 }
 
-form {
+.form {
   padding: 1px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
 }
 .projets-list {
   padding: 20px;
+  padding-top: 50px;
   overflow-y: auto;
 }
 
@@ -41,9 +45,6 @@ form {
   text-align: center;
 }
 
-.project-info {
-  flex: 1;
-}
 
 .project-title {
   font-weight: bolder;
@@ -77,8 +78,8 @@ form {
 
 .form-group { 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .form-group:nth-child(even) { 
@@ -86,7 +87,7 @@ form {
 }
 
 .form-group label {
-  width: 100%;
+  width: 50%;
   margin-bottom: 5px;
   text-align: left;
   font-weight: normal;
@@ -127,3 +128,9 @@ form {
 }
 
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

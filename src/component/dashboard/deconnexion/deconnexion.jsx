@@ -29,7 +29,7 @@ function Deconnexion() {
 
   return (
     <>
-      <button onClick={handleOpen} className='con'>Déconnexion</button>
+      <button onClick={handleOpen} className='con'  style={{ marginBottom: '25px' }} >Déconnexion</button>
       {isOpen && (
         <div ref={formRef} className="form-containerc">
           <div className="dialog">

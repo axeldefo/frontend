@@ -31,12 +31,13 @@ const NavDash = () => {
       </a>
       <div className={`nav-elements ${showMenu ? 'active' : ''}`}>
         <ul>
+        <li>
+            <a href="#stats" className={activeItem === '#stats' ? 'active' : ''} onClick={() => setActiveItem('#stats')} disabled={activeItem === '#deconnexion'}>Stats</a>
+          </li>
           <li>
             <a href="#crudprojets" className={activeItem === '#crudprojets' ? 'active' : ''} onClick={() => setActiveItem('#crudprojets')} disabled={activeItem === '#deconnexion'}>Projets</a>
           </li>
-          <li>
-            <a href="#stats" className={activeItem === '#stats' ? 'active' : ''} onClick={() => setActiveItem('#stats')} disabled={activeItem === '#deconnexion'}>Stats</a>
-          </li>
+          
           <li>
             <Deconnexion className={`con ${activeItem === '#deconnexion' ? 'active' : ''}`} onClick={handleDeconnexionClick} ></Deconnexion>
           </li>

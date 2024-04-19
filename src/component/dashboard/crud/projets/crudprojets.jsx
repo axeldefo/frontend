@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import './crudprojets.css';
 
+const initialFormValues = {
+  titre: '',
+  descriptionIntro: '',
+  motsCles: '',
+  thumbnail: '',
+  imagesIllustration: ['', '', '', '', ''],
+  technologies: '',
+  annee: '',
+  pourcentage: '',
+  descriptionComplete: '',
+};
+
 function Crudprojets() {
   const [projets, setProjets] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [formValues, setFormValues] = useState({
-    titre: '',
-    descriptionIntro: '',
-    motsCles: '',
-    thumbnail: '',
-    imagesIllustration: ['', '', '', '', ''], // 5 champs pour les images d'illustration
-    technologies: '',
-    annee: '',
-    pourcentage: '',
-    descriptionComplete: '',
-  });
-
+  const [formValues, setFormValues] = useState({ ...initialFormValues });
+  const [pendingFormValues, setPendingFormValues] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
 
   useEffect(() => {
     if(localStorage.getItem('isConnected') === 'false' && localStorage.getItem('dashboard') === true) {
       localStorage.setItem('dashboard', false);
     }
   }, []);
-
 
   useEffect(() => {
     fetchProjets();
@@ -64,10 +66,8 @@ function Crudprojets() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = async (e, action, projet) => {
     e.preventDefault();
-
-    // Vérifications des limites de caractères
     if (formValues.descriptionIntro.length > 80) {
       alert('La description introductive ne peut pas dépasser 80 caractères.');
       return;
@@ -84,52 +84,47 @@ function Crudprojets() {
       return;
     }
 
-    const motsClesArray = formValues.motsCles.split(/\s*,\s*/).filter(Boolean); // Split by comma with optional spaces
+    const motsClesArray = formValues.motsCles.split(/\s*,\s*/).filter(Boolean);
     const technologiesArray = formValues.technologies.split(/\s*,\s*/).filter(Boolean);
 
     const updatedFormValues = {
       ...formValues,
-      motsCles: motsClesArray, // Update with array of keywords
-      technologies: technologiesArray, // Update with array of technologies
+      motsCles: motsClesArray,
+      technologies: technologiesArray,
     };
 
+    const confirmationMessage = `Etes vous sur de vouloir ${action} ce projet ?`;
 
+    setPendingFormValues(updatedFormValues);
+    setPopupMessage(confirmationMessage);
+    setShowPopup(true);
+  };
+
+  const handleConfirmation = async () => {
+    setShowPopup(false);
     try {
       let url = '/api/projets';
       let method = 'POST';
-      // Supprimer l'attribut "num" de l'objet JSON
-      delete updatedFormValues.num;
 
       if (selectedProject) {
         method = 'PUT';
-        updatedFormValues.num = selectedProject.num;
+        pendingFormValues.num = selectedProject.num;
       }
 
       const response = await fetch(url, {
         method,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('accessToken')}`, // Assuming accessToken is available
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
-        body: JSON.stringify(updatedFormValues),
+        body: JSON.stringify(pendingFormValues),
       });
 
       if (!response.ok) {
         throw new Error('Failed to save project');
       }
 
-      // Clear form values and fetch updated projects
-      setFormValues({
-        titre: '',
-        descriptionIntro: '',
-        motsCles: '',
-        thumbnail: '',
-        imagesIllustration: ['', '', '', '', ''], // Resetting images illustration fields
-        technologies: '',
-        annee: '',
-        pourcentage: '',
-        descriptionComplete: '',
-      });
+      setFormValues({ ...initialFormValues });
       setSelectedProject(null);
       fetchProjets();
     } catch (error) {
@@ -143,7 +138,7 @@ function Crudprojets() {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('accessToken')}`, // Assuming accessToken is available
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
       });
 
@@ -151,18 +146,7 @@ function Crudprojets() {
         throw new Error('Failed to delete project');
       }
 
-      // Clear form values and fetch updated projects
-      setFormValues({
-        titre: '',
-        descriptionIntro: '',
-        motsCles: '',
-        thumbnail: '',
-        imagesIllustration: ['', '', '', '', ''], // Resetting images illustration fields
-        technologies: '',
-        annee: '',
-        pourcentage: '',
-        descriptionComplete: '',
-      });
+      setFormValues({ ...initialFormValues });
       setSelectedProject(null);
       fetchProjets();
     } catch (error) {
@@ -176,12 +160,19 @@ function Crudprojets() {
     setFormValues({ ...formValues, imagesIllustration: updatedImages });
   };
 
+  const popupButtons = (
+    <div className="popup-buttons">
+      <button onClick={() => setShowPopup(false)}>Annuler</button>
+      <button onClick={handleConfirmation}>Oui</button>
+    </div>
+  );
+
   return (
-    <div className="crud-projets-container">
+    <div className="crud-projets-container" id="crudprojets">
       <div className="projets-list">
         <h1 className='h1'>Projets</h1>
-        {loading ? ( // Display loading text while projects are loading
-          <p>Loading...</p>
+        {loading ? (
+          <p className='loading'>Loading...</p>
         ) : (
           projets.map((project) => (
             <div
@@ -200,10 +191,11 @@ function Crudprojets() {
       </div>
       <div className="project-details">
         <h1 className='h1'>{selectedProject ? 'Modifier le projet' : 'Créer un projet'}</h1>
-        <form onSubmit={handleFormSubmit}>
+
+        <form className='formu' onSubmit={(e) => handleFormSubmit(e, selectedProject ? 'modifier' : 'créer', selectedProject)}>
           <div className="form-group">
             <label htmlFor="titre">Titre :</label>
-            <input type="text" id="titre" name="titre" value={formValues.titre} onChange={handleInputChange} placeholder="Titre" />
+          <input type="text" id="titre" name="titre" value={formValues.titre} onChange={handleInputChange} placeholder="Titre" />
           </div>
           <div className="form-group">
             <label htmlFor="descriptionIntro">Description Intro :</label>
@@ -249,7 +241,6 @@ function Crudprojets() {
             <label htmlFor="descriptionComplete">Description complète :</label>
             <textarea id="descriptionComplete" name="descriptionComplete" value={formValues.descriptionComplete} onChange={handleInputChange} placeholder="Description complète" />
           </div>
-
           <div className="form-actions">
             <button type="submit">{selectedProject ? 'Modifier' : 'Créer'}</button>
             {selectedProject && (
@@ -260,8 +251,15 @@ function Crudprojets() {
             )}
           </div>
         </form>
+        {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+              <p>{popupMessage}</p>
+              {popupButtons}
+            </div>
+          </div>
+        )}
       </div>
-
     </div>
   );
 }

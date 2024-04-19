@@ -3,10 +3,9 @@
 
 .navbar {
 
-  margin: 0px 0px 0px 00px;
-  padding: 5px 30px;
-  padding-bottom: 25px;
-  padding-top: 20px;
+  padding: 0px 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items:  center;

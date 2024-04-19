@@ -1,0 +1,75 @@
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: 50px auto;
+    margin-top: 0;
+
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.751);
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .total-projects {
+    grid-column: span 2;
+    text-align: center;
+  }
+  
+  .total-projects h2{
+    font-size: 30px;
+  }
+
+  .total-projects p{
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--var-soft-blue);
+  }
+
+  .total-projects p:hover{
+    transform: scale(1.2);
+}
+  
+
+.keyword-cloud,
+.technology-cloud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+}
+
+.keyword-cloud div,
+.technology-cloud div {
+  text-align: center;
+}
+  
+  .full-percentage-projects ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 40px ;
+    color: var(--sombre);
+  }
+  
+  .full-percentage-projects h2,.top-keywords h2,
+  .technology-cloud {
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .projects-by-year {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  
