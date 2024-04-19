@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+.navbar {
+
+  margin: 0px 0px 0px 00px;
+  padding: 5px 30px;
+  padding-bottom: 25px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items:  center;
+  height: 75px; /* Hauteur de la barre de navigation */ 
+  width: 100%;
+  align-items: center;
+  /* background: rgba(0, 0, 0, 0.5); /* Couleur de fond de la barre de navigation */
+  /* Appliquer un flou à la barre de navigation */
+}
+
+.nav-elements ul li {
+  transition: transform 0.9s ease; /* Animation de transition de 0.3 seconde avec un effet de transition en douceur */
+}
+
+
+.logo {
+    font-size: 45px;
+    white-space: nowrap;
+    color: var(--white);
+}
+
+.logo:hover {
+    color: var(--sombre);
+}
+
+
+
+.nav-elementsD.active {
+    display: flex;
+  }
+  
+.nav-elements ul {
+  display: flex;
+  list-style-type: none;
+  margin-top: 25px;
+  margin-right: 40px;
+}
+
+.nav-elements ul li {
+  margin-right: 60px;
+}
+
+.nav-elements ul a {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--white);
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-elements ul a:hover {
+    color: var(--sombre);
+    position: relative;
+  }
+
+  .nav-elements ul a::after{ 
+    bottom: -1px;
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transition: width 0.4s ease 0s, left 0.4s ease 0s;
+    width: 0;
+    border-radius: 6px;/* Déplacez le trait de soulignement de moitié vers la gauche pour le centrer */
+  }
+
+  .nav-elements ul a:hover::after {
+    width: 80%; /* Étendez le trait à gauche et à droite jusqu'à 80% de la largeur de l'élément */
+    left: 10%;
+}
+
+
+
+@media screen and (max-width: 980px) {
+
+  .nav-elements {
+    margin-left: 50px;
+}
+.nav-elements ul li {
+    margin-right: 55px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+
+.nav-elements ul li {
+    margin-right: 50px;
+  }
+
+  .nav-elements {
+    margin-left: 50px;
+}
+}
+
+
+@media screen and (max-width: 900px) {
+
+
+
+
+.menu-icon {
+    display: block;
+    font-size: 45px;
+    margin-right: 10px;
+    z-index: 2;
+  }
+  
+  
+  .nav-elements {
+    display: none;
+    flex-direction: column;
+    position: fixed; /* Utiliser position: fixed pour couvrir toute la page */
+    top: 0; /* Positionner en haut de la page */
+    left: 0;
+    height: 100vh;
+    right: 0;
+    bottom: 0; 
+    padding: 190px ;
+    padding-left: 230px;
+    z-index: 1;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+  }
+  
+
+  .nav-elements ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .nav-elements ul li {
+    margin-right: 0;
+    margin-bottom: 70px;
+  }
+
+  .nav-elements ul a {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .copyright {/* Couleur du texte du copyright */
+    display: block;
+    font-size: 10px;
+    position: absolute;
+    margin: 0 auto;       
+    bottom: 30px; /* Ajustez selon vos besoins */
+    z-index: 2;
+  }
+
+  .con, .con:hover{
+    font-size: 25px;
+    background: none;
+    border: none;
+    color:var(--white);
+    right: 10px;
+  }
+
+  .con:hover{
+    transform: scale(1.05);
+  }
+
+  
+}
+
+

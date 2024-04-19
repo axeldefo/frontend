@@ -1,0 +1,15 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Assurez-vous que la navbar est au-dessus de tout le reste */
+    transition: backdrop-filter 0.3s ease; /* Ajoutez une transition fluide */
+  }
+  
+  .dashboard.scrolled .navbar {
+    backdrop-filter: blur(10px); /* Appliquer un flou lorsque la page est scrollée */
+  }
+  
+  .dashboard {
+    padding-top: 100px; 
+  }

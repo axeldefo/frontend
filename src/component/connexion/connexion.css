@@ -1,0 +1,143 @@
+.con{
+    font-size: 18px;
+    background-color:  var(--white);
+    color: var(--sombre); 
+    margin-top: -12px;
+}
+
+.con:hover, .con::after{
+    transform: scale(1.05);
+    background-color:  var(--sombre); 
+    color: var(--white);
+    backdrop-filter: var(--sombre);
+    margin-top: -12px;
+}
+
+.form-containerc {
+  position:fixed;
+  left: 0;
+  transform: translateY(-50%);
+  width: 350px;
+  top: 50vh;
+  height: 100vh;
+  background-color: transparent;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  transition:  transform 0.2s ease;
+}
+
+.form-containerc h2 {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.form-groupc {
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-groupc label {
+  width: 65%;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.form-groupc input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+
+.form-actionsc {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  align-items: center;
+}
+
+.form-actionsc button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+/* Primary button styles */
+.primary-btn {
+  background-color: var(--white);
+  color: var(--sombre);
+  width: 70%;
+  transition: background-color 0.3s, transform 0.2s ease;
+  margin-bottom: 30px;
+}
+
+.primary-btn:hover {
+  background-color: var(--sombre);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+
+.back-btn {
+    background-color: var(--sombre);
+    color: var(--white);
+    width: 70%;
+    transition: background-color 0.3s, transform 0.2s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: var(--white);
+    color: var(--sombre);
+    transform: scale(1.05);
+  }
+
+  .connected{
+    background-color: var(--sombre);
+    color: var(--white);
+    width: 70%;
+    transition: background-color 0.3s, transform 0.2s ease;
+    margin-top: 50px;
+  }
+  
+  .connected:hover, .connected::after {
+    background-color: var(--white);
+    color: var(--sombre);
+    transform: scale(1.05);
+  }
+
+  .dialog{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s ease;
+ 
+  }
+
+  .dialog p{
+    margin: 0 auto;
+    align-items: center;
+    font-weight: bold;
+    background-color: #2323230c;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s ease;
+    gap: 30px;
+  }

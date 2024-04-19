@@ -1,0 +1,129 @@
+.crud-projets-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  padding: 0 5%;
+  padding-top: -50px;
+  overflow: hidden;
+}
+
+form {
+  padding: 1px; 
+}
+.projets-list {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  padding: 10px; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom:10px;
+}
+
+.project-item:hover,.project-item.selected {
+  background-color: #8b8b8b29;
+  transform: scale(1.02);
+}
+
+.project-item img {
+  width: 110px; 
+  height: auto;
+  margin-right: 10px; 
+}
+
+.h1 {
+  font-size: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-title {
+  font-weight: bolder;
+  font-size: 20px;
+  color: #5482a5;
+  text-align: left;
+}
+
+.project-description {
+  margin-top: 1px; 
+  text-align: justify;
+  color: var(--white);
+  font-size: 15px;
+}
+
+.project-details {
+  flex: 1;
+  padding: 0px 30px; 
+}
+
+.project-details label {
+  font-weight: bold;
+}
+
+.project-details input {
+  display: block;
+  width: calc(100% - 5px); 
+  padding: 4px; 
+  background-color: #bebfc115;
+}
+
+.form-group { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group:nth-child(even) { 
+  margin-top: 10px;
+}
+
+.form-group label {
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: left;
+  font-weight: normal;
+  color: var(--white);
+}
+
+
+
+.form-actions {
+  margin-top: 40px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 40px;
+}
+
+.form-actions button {
+  font-size: 18px;
+  background-color:  var(--white);
+  color: var(--sombre); 
+  margin-right: 5px;
+  margin-top: -10px;
+}
+
+.form-actions button:hover{
+  transform: scale(1.05);
+  background-color:  var(--sombre); 
+  color: var(--white);
+  backdrop-filter: var(--sombre);
+  margin-top: -12px;
+}
+
+.project-details textarea[name="motsCles"],
+.project-details textarea[name="descriptionComplete"] {
+  width: calc(100% - 16px); 
+  padding: 15px; 
+  border-radius: 5px;
+}
+
+

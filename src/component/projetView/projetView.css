@@ -1,0 +1,124 @@
+.project-details {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .project-info-item{
+    gap: 20px;
+    margin: 0 auto;
+  }
+  
+
+  .title{
+    text-align: center;
+    margin:0 0 50px 0;
+    font-weight: bold;
+    font-size: 50px;
+  }
+
+  .descr{
+    font-size: 30px;
+    text-align: center;
+    margin: 30px 0; 
+  }
+  .project-thumbnail {
+    display: block;
+    margin: 30px auto;
+    width: 60%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-info {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .info-title {
+    margin-top: 0;
+    white-space: nowrap;
+    font-size: 25px;
+    color: var(--var-soft-blue);
+    margin-top: 20px;
+  }
+  
+  .info-content {
+    margin-top: 10px;
+
+  }
+  
+ 
+  .s{
+    height: 500px;
+  }
+  .illustration-slider {
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    margin: 0 auto; /* Centre le slider horizontalement */
+  }
+
+  .illustration-slider {
+    margin-top: 50px;
+    display: flex; /* Ensure flexbox for centering */
+    justify-content: center; /* Center image horizontally */
+    height: 100%; /* Set height to container size */
+
+  }
+
+  /*hide arrow*/
+    .slick-prev, .slick-next {
+        display: none !important;
+    }
+
+    .slick-dots
+    {
+        bottom: 10px;
+        margin: 0 auto;
+    }
+    .slick-dots li button{
+        font-size: 9px; /* Taille de la police des points */
+        color: #ffffff; /* Couleur des points */
+      }
+
+      .slick-dots li button::before{
+        font-size: 12px; /* Taille de la police des points */
+        color: #000000; /* Couleur des points */
+      }
+      .slick-list
+        {
+            width: 50%;
+        }
+.illustration-image {
+    display: block;
+    width: 100%; /* Ajuste la largeur pour remplir le cadre */
+    height: 100%; /* Assure la proportionnalité de l'image */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .illustration-slider .illustration-image {
+    width: 650px; /* Largeur fixe */
+    height: 400px; /* Hauteur fixe */
+    object-fit: cover; /* Pour conserver les proportions de l'image */
+    margin-left: 50px;
+  }
+
+.con{
+    font-size: 18px;
+    background-color:  var(--white);
+    color: var(--sombre); 
+    margin-top: -12px;
+}
+
+.con:hover, .con::after{
+    transform: scale(1.05);
+    background-color:  var(--sombre); 
+    color: var(--white);
+    backdrop-filter: var(--sombre);
+    margin-top: -12px;
+}

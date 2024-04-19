@@ -1,0 +1,60 @@
+#contact {
+    text-align: center; /* Centrer le contenu horizontalement */
+    padding-top: 70px; /* Espace en haut */
+    margin-bottom: 1rem;
+}
+
+.container.contact_container {
+    width: 50%;
+    margin: 0 auto; /* Centrer horizontalement */
+}
+
+.cont{
+    margin-bottom: 3rem;
+}
+input[type="text"] {
+    width: 80%;
+    padding: 1rem; /* Ajustement de la taille du padding */
+    margin-bottom: 1rem; /* Espace entre les champs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: transparent; 
+    margin-bottom: 15px;/* Inclure la bordure et le padding dans la largeur */
+}
+
+.champ {
+    width: 80%;
+    padding: 1rem; /* Ajustement de la taille du padding */
+    margin-bottom: 1rem; /* Espace entre les champs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: transparent;
+    height: 140px; 
+}
+
+.primary-btn {
+  background-color: var(--white);
+  color: var(--sombre);
+  width: 70%;
+  transition: background-color 0.3s, transform 0.2s ease;
+  margin-bottom: 30px;
+}
+
+.primary-btn:hover {
+  background-color: var(--sombre);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.copyr{
+    font-size: 12px;
+}
+.message_sent p {
+    background-color: #28a745; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 0.5rem; /* Ajustement de la taille du padding */
+    border-radius: 4px;
+}
+

@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "allowJs":true,
+      "module": "CommonJS",
+      "target": "ES6"
+    },
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./"
+      ]
+    },
+    "include": ["src"]
+  }

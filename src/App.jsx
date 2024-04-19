@@ -1,23 +1,44 @@
-import React from "react";
-import { createBrowserApp, createRoutesFromElements, Route } from "react-router-dom";
-import Accueil from "./pages/Accueil";
-import Dashboard from "./pages/Dashboard";
-import Moi from "./components/moi";
-import Parcours from "./components/parcours";
-import Projets from "./components/projets";
+import React, { useState, useEffect } from "react";
+import { Navigate, Routes, Route } from "react-router-dom";
+import './App.css';
+import Accueil from './pages/accueil/accueil.jsx';
+import Dashboard from "./pages/dashboard/dashboard";
 
-const routes = createRoutesFromElements(
-  <Route path="/" element={<Accueil />}>
-    <Route index element={<Moi />} />
-    <Route path="parcours" element={<Parcours />} />
-    <Route path="projets" element={<Projets />} />
-  </Route>,
-  <Route path="/dashboard" element={<Dashboard />} />
-);
+function App() {
+  const [position, setPosition] = useState({ x: -100, y: -100 });
 
-const App = () => {
-  const Router = createBrowserApp(routes);
-  return <Router />;
-};
+  useEffect(() => {
+    const updatePosition = (event) => {
+      setPosition({ x: event.clientX, y: event.clientY });
+    };
+    
+    document.addEventListener('mousemove', updatePosition);
+    document.addEventListener('touchmove', updatePosition);
+    
+    return () => {
+      document.removeEventListener('mousemove', updatePosition);
+      document.removeEventListener('touchmove', updatePosition);
+    };
+  }, []);
+
+  
+
+
+  return (
+    <div className="app">
+      {(position.x !== -100 && position.y !== -100) && (
+        <div className="circle" style={{ left: position.x, top: position.y }}></div>
+      )}
+
+
+        <Routes>
+            <Route path="*" element= { <Accueil />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}> </Route>
+            
+        </Routes>
+
+    </div>
+  );
+}
 
 export default App;
