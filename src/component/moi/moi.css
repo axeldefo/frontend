@@ -5,11 +5,10 @@
     align-items: center;
     text-align: center;
     height: calc(100vh - 87.5px); /* Pour centrer verticalement */
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
-    padding-top: 35px;
+    padding-top: 40px;
 }
-  
 
 .nom {
     width: 22ch;
@@ -18,7 +17,8 @@
     overflow: hidden;
     border-right: 3px solid;
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
   
   @keyframes typing {
@@ -36,12 +36,16 @@
 
 .titre {
     font-size: 3.2em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+   
 }
 
-.description {
+.descriptio {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 80%;
 }
 
 
@@ -51,7 +55,7 @@
     justify-content: space-between;
     color: var(--white);
     font-size: 35px;
-    margin-top: 75px;
+    margin-top: 105px;
     width: 300px;
 }
 
@@ -67,17 +71,49 @@
 
 /*media queries*/
 
+@media (max-width: 850px) {
+    .moi {
+        width: 80%;
+        padding-top: 0;
+        margin-top: -100px;
+        margin-bottom: 0;
+    }
+    .nom {
+        font-size: 1.7em;
+        margin-bottom: 20px;
+    }
+    .titre {
+        font-size: 2.4em;
+    }
+    .descriptio {
+        margin-top: 10px;
+        font-size: 1.2em;
+        margin-bottom: 100px;
+    }
+    
+    .moi{
+        gap: 30px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .moi {
         width: 80%;
+        padding-top: 0;
+        margin-top: -20px;
+        margin-bottom: 0;
     }
     .nom {
-        font-size: 1.4em;
+        font-size: 1.5em;
+        margin-bottom: 25px;
     }
     .titre {
-        font-size: 2.1em;
+        font-size: 2.3em;
     }
-    .description {
+    .descriptio {
+        margin-top: 10px;
         font-size: 1em;
     }
+
 }

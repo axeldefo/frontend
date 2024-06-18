@@ -48,9 +48,11 @@ const Stats = () => {
   };
 
   return (
+
+    <><h1 className='toph1'>Statistiques des projets</h1>
     <div className="stats-container" id="stats">
       {stats && (
-        <>
+        <div className='staat'>
           <div className="total-projects">
             <h2>Total Projects</h2>
             <p>{stats.totalProjects}</p>
@@ -89,7 +91,7 @@ const Stats = () => {
           {/* Projects by Year */}
           <div className="projects-by-year">
             <h2>Projects par année</h2>
-            <LineChart width={600} height={300} data={stats.projectsByYear}>
+            <LineChart width={450} height={300} data={stats.projectsByYear}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
               <YAxis />
@@ -98,9 +100,15 @@ const Stats = () => {
               <Line type="monotone" dataKey="count" stroke="#8884d8" />
             </LineChart>
           </div>
-        </>
+        </div>
       )}
     </div>
+     <div className='copyri'>
+     <span >
+          © 2024 Kxng, Tous droits réservés.
+      </span>
+     </div>
+    </>
   );
 };
 

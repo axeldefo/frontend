@@ -23,17 +23,22 @@
   
   .card-container {
     width: 350px;
-    height: 450px;
+    padding-bottom: 15px;
     margin: 30px;
     background-color: var(--var-card-dark);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    
+    
   }
   
   .card-container:hover {
     transform: translateY(-5px);
+    background-color: black;
+    box-shadow: 0 2px 4px var(--sombre);
+    cursor: pointer;
   }
   
   .image-container {
@@ -75,18 +80,26 @@
     margin-top: -5px;
     margin-bottom: 7px;
     margin-left: 7px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  /* Number of lines displayed before it truncate */
+     overflow: hidden;
  }
   
   .main-content p {
     color: var(--var-soft-blue);
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 7px;
     margin-top: 7px;
     margin-left: 10px;
-    text-align: left;
-    height: 65px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    height: 63px;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;  /* Number of lines displayed before it truncate */
+     overflow: hidden;
+    
+    
 }
   
   .flex-row {
@@ -124,3 +137,220 @@
         font-size: 20px;
     }
     
+    .multi-select-combo-box {
+      width: 60%;
+
+      margin: auto;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 2em;
+    }
+    
+    .multi-select-combo-box vaadin-combo-box {
+      width: 100%;
+    }
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(label) {
+      color: var(--var-soft-blue); /* Couleur de l'étiquette */
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(input-field) {
+      /*background-color: var(--var-card-dark); /* Couleur de fond */
+      border-radius: 8px; /* Rayon des bordures */
+      color: var(--var-lightest); /* Couleur du texte */
+      border: 1px solid var(--var-soft-blue); /* Couleur de la bordure */
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(input-field) vaadin-multi-select-combo-box-input {
+      color: var(--var-lightest); /* Couleur du texte dans le champ */
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(toggle-button) {
+      color: var(--var-soft-blue); /* Couleur du bouton de bascule */
+    }
+
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(toggle-button):hover {
+      color: var(--var-lightest); /* Couleur de l'icône du bouton de bascule */
+    }
+
+    .multi-select-combo-box vaadin-multi-select-combo-box-chip::part(remove-button) {
+      color: var(--var-soft-blue); /* Couleur du bouton de suppression */
+    }
+
+    .multi-select-combo-box vaadin-multi-select-combo-box-chip::part(remove-button):hover {
+      color: var(--var-lightest); /* Couleur de l'icône du bouton de suppression */
+    }
+    .multi-select-combo-box vaadin-multi-select-combo-box-chip {
+      background-color: var(--var-card-dark); /* Couleur de fond des éléments sélectionnés */
+      color: var(--var-soft-blue); /* Couleur du texte des éléments sélectionnés */
+      border-radius: 4px; /* Rayon des bordures des éléments sélectionnés */
+      border: 0.5px solid var(--var-soft-blue); /* Bordure pour plus de visibilité */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour plus de visibilité */
+  }
+  
+  .multi-select-combo-box vaadin-multi-select-combo-box-item::part(content) {
+      color: var(--var-lightest); /* Couleur du texte des éléments dans la liste */
+  }
+  
+  .multi-select-combo-box vaadin-multi-select-combo-box-item::part(checkbox) {
+      color: var(--var-soft-blue); /* Couleur de la case à cocher */
+      border: 1px solid var(--var-lightest); /* Bordure pour plus de visibilité */
+  }
+
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box {
+      width: 100%;
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(label) {
+      color: var(--var-soft-blue); /* Couleur de l'étiquette */
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(input-field) {
+      /*background-color: var(--var-card-dark); /* Couleur de fond */
+      border-radius: 8px; /* Rayon des bordures */
+      color: var(--var-lightest); /* Couleur du texte */
+      border: 1px solid var(--var-soft-blue); /* Couleur de la bordure */
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(input-field) vaadin-multi-select-combo-box-input {
+      color: var(--var-lightest); /* Couleur du texte dans le champ */
+    }
+    
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(toggle-button) {
+      color: var(--var-soft-blue); /* Couleur du bouton de bascule */
+    }
+
+    .multi-select-combo-box vaadin-multi-select-combo-box::part(toggle-button):hover {
+      color: var(--var-lightest); /* Couleur de l'icône du bouton de bascule */
+    }
+
+    .multi-select-combo-box vaadin-multi-select-combo-box-chip::part(remove-button) {
+      color: var(--var-soft-blue); /* Couleur du bouton de suppression */
+    }
+
+    .multi-select-combo-box vaadin-multi-select-combo-box-chip::part(remove-button):hover {
+      color: var(--var-lightest); /* Couleur de l'icône du bouton de suppression */
+    }
+    .multi-select-combo-box vaadin-multi-select-combo-box-chip {
+      background-color: var(--var-card-dark); /* Couleur de fond des éléments sélectionnés */
+      color: var(--var-soft-blue); /* Couleur du texte des éléments sélectionnés */
+      border-radius: 4px; /* Rayon des bordures des éléments sélectionnés */
+      border: 0.5px solid var(--var-soft-blue); /* Bordure pour plus de visibilité */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour plus de visibilité */
+  }
+  
+  .multi-select-combo-box vaadin-multi-select-combo-box-item::part(content) {
+      color: var(--var-lightest); /* Couleur du texte des éléments dans la liste */
+  }
+  
+  .multi-select-combo-box vaadin-multi-select-combo-box-item::part(checkbox) {
+      color: var(--var-soft-blue); /* Couleur de la case à cocher */
+      border: 1px solid var(--var-lightest); /* Bordure pour plus de visibilité */
+  }
+  
+  /*----------------------------------*/
+  .multi-select-combo-box {
+    margin-bottom: 20px;
+  }
+  
+  .multi-select-combo-box vaadin-combo-box::part(label) {
+    color: var(--var-soft-blue); /* Couleur de l'étiquette */
+  }
+  
+  .multi-select-combo-box vaadin-combo-box::part(input-field) {
+    /*background-color: var(--var-card-dark); /* Couleur de fond */
+    border-radius: 8px; /* Rayon des bordures */
+    color: var(--var-soft-blue); /* Couleur du texte */
+    border: 1px solid var(--var-soft-blue); /* Couleur de la bordure */
+  }
+  
+  .multi-select-combo-box vaadin-combo-box::part(input-field) vaadin-multi-select-combo-box-input {
+    color: var(--var-lightest); /* Couleur du texte dans le champ */
+  }
+  
+  .multi-select-combo-box vaadin-combo-box::part(toggle-button) {
+    color: var(--var-soft-blue); /* Couleur du bouton de bascule */
+  }
+
+  .multi-select-combo-box vaadin-combo-box::part(toggle-button):hover {
+    color: var(--var-lightest); /* Couleur de l'icône du bouton de bascule */
+  }
+
+
+ @media screen and (max-width: 1080px) {
+    .projets {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .multi-select-combo-box {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 850px) {
+    #projets{
+      padding-top: 55px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+}
+  
+  @media screen and (max-width: 768px) {
+    .projets {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card-container {
+      width: 350px;
+      margin: 20px;
+    }
+
+    .techno {
+      padding: 0px 20px 0px 20px;
+      margin-top: 10px;
+      margin-left: 0px;
+      font-size: 13px;
+    }
+    
+    .main-content {
+      padding: 10px;
+    }
+    
+    .main-content h1 {
+      color: var(--var-lightest);
+      font-size: 22px;
+      text-align: left;
+      margin-top: -5px;
+      margin-bottom: 7px;
+      margin-left: 7px;
+   }
+    
+    .main-content p {
+      color: var(--var-soft-blue);
+      font-size: 14px;
+      margin-bottom: 10px;
+      margin-top: 7px;
+      margin-left: 10px;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+    
+    .flex-row {
+      display: flex;
+      gap: 160px;
+      align-items: center;
+      text-align: center;
+      padding: 0px 10px 0 10px;
+      margin-left: 0px;
+      color: var(--white);
+    }
+
+    .multi-select-combo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.05em;
+    }
+  }

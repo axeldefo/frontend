@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaLocationDot } from "react-icons/fa6";
 import './parcours.css';
 
 const Parcours = () => {
@@ -39,30 +40,30 @@ const Parcours = () => {
   };
 
   return (
-    <section id='parcours'>
-    <div className="parcours-container">
+    <section id='parrcours'>
+    <div className="parrcours-container">
         <h1 className='parc'>Mon parcours</h1>
       {parcours.map((item, index) => (
-        <div key={index} className={`parcours-item ${item.isOpen ? 'open' : ''}`}>
-          <div className="parcours-header" onClick={() => toggleDetails(index)}>
-            <div className="parcours-info">
+        <div key={index} className={`parrcours-item ${item.isOpen ? 'open' : ''}`}>
+          <div className="parrcours-header" onClick={() => toggleDetails(index)}>
+            <div className="parrcours-info">
               <span>{item.titre} @ {item.entreprise}</span>
-              <span>{item.dateDebut} - {item.dateFin}</span>
             </div>
-            <span className={`toggle-icon ${item.isOpen ? 'open' : 'closed'}`} onClick={() => toggleDetails(index)}>
-                {item.isOpen ? '-' : '+'}
-            </span>
+              
+              <span className={`toggle-icon ${item.isOpen ? 'open' : 'closed'}`} onClick={() => toggleDetails(index)}>
+              <span className='date'>{item.dateDebut} - {item.dateFin}</span> {item.isOpen ? '-' : '+'}
+              </span>
         </div>
           {item.isOpen && (
-            <div className="parcours-details">
+            <div className="parrcours-details">
               <div className="details-header">
-                <span>{item.lieu}</span>
-                <span>{item.type}</span>
+                <span className="location"><FaLocationDot className='FaLocationDot'/>{item.lieu}</span>
+                <span className='formation'>{item.type}</span>
               </div>
               <p className="description">{item.description}</p>
               <ul className="acquis-list">
                 {item.acquis.map((acquis, idx) => (
-                  <li key={idx}>{acquis.nom}</li>
+                  <li key={idx}className='acquis'>{acquis.nom}</li>
                 ))}
               </ul>
             </div>

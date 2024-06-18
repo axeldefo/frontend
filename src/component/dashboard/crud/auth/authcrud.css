@@ -1,0 +1,75 @@
+.crud-auth-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    gap: 20px;
+    height: calc(100vh+75px);
+    padding-top: 75px;
+  }
+  
+  .toph {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 30px auto;
+    text-align: center;
+    color: var(--sombre);
+  }
+
+  .user-profile,
+  .user-details {
+    flex: 1;
+    margin-bottom: 30px;
+  }
+  
+  .h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info {
+    background-color: black;
+    padding: 20px;
+    border-radius: 5px;
+    align-items: center;
+  }
+  
+    .profile-info:hover {
+      transform: scale(1.02);
+      background-color: var(--sombre);
+      color: var(--white);
+      backdrop-filter: var(--sombre);
+    }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+
+    .form-actions {
+        width: 70%;
+        
+    }

@@ -1,8 +1,8 @@
-#parcours{
+#parrcours{
     padding-top: 110px;
 
 }
-.parcours-container {
+.parrcours-container {
     flex-direction: column;
     gap: 20px;
     justify-content: center; /* Center horizontally */
@@ -12,46 +12,62 @@
     margin-bottom: 100px;
 }
   
-  .parcours-item {
+  .parrcours-item {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 8px;
-    padding: 14px;
+    padding: 15px 30px;
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
     margin-bottom: 30px; /* For the bottom border on collapse */
+    background-color: var(--var-card-dark);
   }
   
-  .parcours-item.open {
+  .parrcours-item:hover {
+    background-color: black;
+    transform: scaleX(1.02);
+    border-top: 0.5px solid #ffffff;
+  }
+
+  .parrcours-item.open {
     height: auto; /* Allow content to expand */
+    border-top: 0.5px solid #ffffff;
   }
   
-  .parcours-header {
+  .parrcours-header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #ddd; /* Bottom border for collapsed state */
     padding-bottom: 8px; /* Padding for collapsed state */
+    align-items: center;
+    cursor: pointer;
   }
   
-  .parcours-info {
+  .parrcours-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    white-space: nowrap;
-    gap: 40%;
   }
   
-  .parcours-info span:first-child {
+  .parrcours-info span:first-child {
     font-weight: bold;
   }
-  
+
+  .date{ 
+    white-space: nowrap;
+    margin-right: 30px;
+    text-align: right;
+    font-size: 18px;
+  }
+
   .toggle-icon {
     font-size: 25px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin-left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .parc{
@@ -59,8 +75,10 @@
     margin-bottom: 70px;
   }
   
-  .parcours-details {
+  .parrcours-details {
+    margin-top: 10px;
     padding-top: 16px; /* Top padding for expanded state */
+    border-top: 1px solid #ddd;
   }
   
   .details-header {
@@ -73,10 +91,99 @@
   
   .description {
     margin-bottom: 16px;
+    text-align: justify;
   }
   
   .acquis-list {
-    text-align: center;
-
+    display: flex;
+    gap: 10px;
+    justify-content: center;
   }
   
+  .acquis{
+    border: #dddddd00 1px solid;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background-color: blueviolet;
+    text-align: center;
+  }
+  .location{
+    display: flex;
+    gap: 10px;
+   
+  }
+
+  .formation{
+    border: #dddddd00 1px solid;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background-color: var(--sombre);
+  }
+
+  .FaLocationDot{
+    margin-top: 3px;
+    color: var(--sombre);
+  }
+
+
+@media (max-width: 1140px) {
+    .parrcours-info {
+      max-width: 25ch;
+      overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 850px) {
+
+  .parc{
+    text-align: center;
+    margin-bottom: 120px;
+  }
+
+  #parrcours{
+    padding-top: 150px;
+  }
+ 
+  .parrcours-item {
+    margin-bottom: 40px;
+}
+  
+}
+
+@media (max-width: 793px) {
+  .parrcours-info {
+    font-size: 15px;
+  }
+
+  .date{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 538px) {
+  .parrcours-header{
+    flex-direction: column;
+    align-items: center;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .acquis-list{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details-header{
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .parrcours-info {
+    text-align: justify;
+  }
+  #parrcours{
+    padding-top: 100px;
+
+}
+}
+

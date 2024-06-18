@@ -1,0 +1,171 @@
+.crud-parcours-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 5%;
+    overflow: hidden;
+  }
+  
+  .form {
+    padding: 1px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .parcours-list {
+    padding: 20px;
+    padding-top: 20px;
+    overflow-y: auto;
+  }
+  
+  .parcours-item {
+    display: grid;
+    grid-template-columns: 110px 1fr; /* Image sur la première colonne, titre et description sur la deuxième colonne */
+    align-items: center; /* Aligner les éléments au centre verticalement */
+    gap: 10px; /* Espacement entre l'image et le texte */
+    padding: 10px; /* Espacement intérieur */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+  }
+  
+  .parcours-item:hover,
+  .parcours-item.selected {
+    background-color: #8b8b8b29;
+    transform: scale(1.02);
+  }
+  
+  .parcours-item img {
+    width: 100%; /* Remplir entièrement la cellule de l'image */
+    height: auto;
+  }
+  
+  .parcours-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .parcours-title {
+    font-weight: bolder;
+    font-size: 20px;
+    color: #5482a5;
+    text-align: left;
+  }
+  
+  .parcours-description {
+    margin-top: 1px;
+    text-align: justify;
+    color: var(--white);
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  
+  
+  .nparcours-details {
+    flex: 1;
+    padding: 15px 30px;
+  }
+  
+  .parcours-details label {
+    font-weight: bold;
+  }
+  
+  .parcours-details input {
+    display: block;
+    width: calc(100% - 5px);
+    padding: 4px;
+    background-color: #00000015;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  
+  .form-group:nth-child(even) {
+    margin-top: 0px;
+  }
+  
+  .form-group label {
+    width: 50%;
+    margin-bottom: 0px;
+    text-align: left;
+    font-weight: normal;
+    color: var(--white);
+  }
+  
+  .form-actions {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 40px;
+  }
+  
+  .form-actions button {
+    font-size: 18px;
+    background-color: var(--white);
+    color: var(--sombre);
+    margin-right: 5px;
+    margin-top: -10px;
+  }
+  
+  .form-actions button:hover {
+    transform: scale(1.05);
+    background-color: var(--sombre);
+    color: var(--white);
+    backdrop-filter: var(--sombre);
+    margin-top: -12px;
+  }
+  
+  .parcours-details textarea[name="acquis"],
+  .parcours-details textarea[name="description"] {
+    width: calc(100% - 16px);
+    padding: 15px;
+    border-radius: 5px;
+
+  }
+  
+  .form-group #description{
+    margin-bottom: 15px;
+  }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .error-message {
+    color: #df8f8f; /* Couleur rouge */
+    font-size: 12px;
+    margin-top: 5px; /* Espacement vers le haut */
+    margin-left: 5px;
+  }
+  
+  /* Media queries */
+  @media screen and (max-width: 1080px) {
+    .crud-parcours-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .form {
+      grid-template-columns: 1fr;
+    }
+  
+    .parcours-description {
+      display: none;
+    }
+  
+    .form-actions {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  

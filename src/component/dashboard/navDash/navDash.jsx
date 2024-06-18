@@ -8,6 +8,10 @@ const NavDash = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
 
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+  
   const handleItemClick = (index) => {
     if (index === '#deconnexion') {
       setTimeout(() => {
@@ -31,12 +35,27 @@ const NavDash = () => {
       </a>
       <div className={`nav-elements ${showMenu ? 'active' : ''}`}>
         <ul>
-        <li>
-            <a href="#stats" className={activeItem === '#stats' ? 'active' : ''} onClick={() => setActiveItem('#stats')} disabled={activeItem === '#deconnexion'}>Stats</a>
+
+         <li>
+            <a href="#crudauth" className={activeItem === '#crudauth' ? 'active' : ''} onClick={() => setActiveItem('#crudauth')} disabled={activeItem === '#deconnexion'}>Authentification</a>
+         </li>
+
+         <li>
+            <a href="#crudmoi" className={activeItem === '#crudmoi' ? 'active' : ''} onClick={() => setActiveItem('#crudmoi')} disabled={activeItem === '#deconnexion'}>Profil</a>
           </li>
+          
           <li>
+            <a href="#crudparcours" className={activeItem === '#crudparcours' ? 'active' : ''} onClick={() => setActiveItem('#crudparcours')} disabled={activeItem === '#deconnexion'}>Parcours</a>
+          </li>
+
+         <li>
             <a href="#crudprojets" className={activeItem === '#crudprojets' ? 'active' : ''} onClick={() => setActiveItem('#crudprojets')} disabled={activeItem === '#deconnexion'}>Projets</a>
           </li>
+
+         <li>
+            <a href="#stats" className={activeItem === '#stats' ? 'active' : ''} onClick={() => setActiveItem('#stats')} disabled={activeItem === '#deconnexion'}>Stats</a>
+          </li>
+          
           
           <li>
             <Deconnexion className={`con ${activeItem === '#deconnexion' ? 'active' : ''}`} onClick={handleDeconnexionClick} ></Deconnexion>
@@ -46,6 +65,11 @@ const NavDash = () => {
       <div className="menu-icon" onClick={() => toggleMenu()}>
           {showMenu ? <IoClose className="close-icon"/> : <RiDoorOpenLine />}
         </div>
+        {showMenu && (
+          <span className='copyright'>
+          © 2024 Kxng, Tous droits réservés.
+          </span>
+        )}
     </nav>
   );
 };

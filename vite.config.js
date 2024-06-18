@@ -22,5 +22,6 @@ export default defineConfig({
         },
             { find: '@/lib', replacement: path.resolve('./src/@/lib/') },
         ],
+       
   },
 })

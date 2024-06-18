@@ -64,7 +64,7 @@ useEffect(() => {
         <div className={`nav-elements ${showMenu ? 'active' : ''}`}>
           <ul>
             <li>
-              <a href="#parcours" className={activeItem ==='#parcours' ? 'active' : ''} onClick={() => handleItemClick('#parcours')}>Parcours</a>
+              <a href="#parrcours" className={activeItem ==='#parcours' ? 'active' : ''} onClick={() => handleItemClick('#parcours')}>Parcours</a>
             </li>
             <li>
               <a href="#projets" className={activeItem === '#projets' ? 'active' : ''} onClick={() => handleItemClick('#projets')}>Projets</a>

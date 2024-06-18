@@ -21,10 +21,11 @@ function Crudprojets() {
   const [loading, setLoading] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState('');
+  const [validationErrors, setValidationErrors] = useState({});
 
   useEffect(() => {
-    if(localStorage.getItem('isConnected') === 'false' && localStorage.getItem('dashboard') === true) {
-      localStorage.setItem('dashboard', false);
+    if (localStorage.getItem('isConnected') === 'false' && localStorage.getItem('dashboard') === 'true') {
+      localStorage.setItem('dashboard', 'false');
     }
   }, []);
 
@@ -66,8 +67,53 @@ function Crudprojets() {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const validateForm = () => {
+    const errors = {};
+    if (!formValues.titre.trim()) {
+      errors.titre = 'Le titre est requis';
+    }
+    if (!formValues.descriptionIntro.trim()) {
+      errors.descriptionIntro = 'La description introductive est requise';
+    }
+    if (!formValues.thumbnail.trim()) {
+      errors.thumbnail = "L'URL du thumbnail est requise";
+    }
+    if (!formValues.annee.trim()) {
+      errors.annee = "L'année est requise";
+    }
+    if (!formValues.pourcentage.trim()) {
+      errors.pourcentage = 'Le pourcentage est requis';
+    }
+    if (!formValues.descriptionComplete.trim()) {
+      errors.descriptionComplete = 'La description complète est requise';
+    }
+    if (!formValues.motsCles.trim()) {
+      errors.motsCles = 'Les mots-clés sont requis';
+    }
+    if (!formValues.technologies.trim()) {
+      errors.technologies = 'Les technologies sont requises';
+    }
+    if (formValues.imagesIllustration.length === 0 || formValues.imagesIllustration.every(image => !image.trim())) {
+      errors.imagesIllustration = "Au moins une image d'illustration est requise";
+    }
+    return errors;
+  };
+
   const handleFormSubmit = async (e, action, projet) => {
     e.preventDefault();
+
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    const motsClesCount = formValues.motsCles.split(',').filter(Boolean).length;
+    if (motsClesCount > 10) {
+      alert('Il ne peut y avoir plus de 10 mots-clés.');
+      return;
+    }
+
     if (formValues.descriptionIntro.length > 80) {
       alert('La description introductive ne peut pas dépasser 80 caractères.');
       return;
@@ -75,12 +121,6 @@ function Crudprojets() {
 
     if (formValues.descriptionComplete.split(/\s+/).length > 250) {
       alert('La description complète ne peut pas dépasser 250 mots.');
-      return;
-    }
-
-    const motsClesCount = formValues.motsCles.split(',').filter(Boolean).length;
-    if (motsClesCount > 10) {
-      alert('Il ne peut y avoir plus de 10 mots-clés.');
       return;
     }
 
@@ -93,7 +133,7 @@ function Crudprojets() {
       technologies: technologiesArray,
     };
 
-    const confirmationMessage = `Etes vous sur de vouloir ${action} ce projet ?`;
+    const confirmationMessage = `Etes vous sûr de vouloir ${action} ce projet ?`;
 
     setPendingFormValues(updatedFormValues);
     setPopupMessage(confirmationMessage);
@@ -168,7 +208,11 @@ function Crudprojets() {
   );
 
   return (
-    <div className="crud-projets-container" id="crudprojets">
+
+    <div id="crudprojets">
+    <h1 className='toph1'>Gestion des projets</h1>
+    <div className="crud-projets-container" >
+
       <div className="projets-list">
         <h1 className='h1'>Projets</h1>
         {loading ? (
@@ -195,27 +239,33 @@ function Crudprojets() {
         <form className='formu' onSubmit={(e) => handleFormSubmit(e, selectedProject ? 'modifier' : 'créer', selectedProject)}>
           <div className="form-group">
             <label htmlFor="titre">Titre :</label>
-          <input type="text" id="titre" name="titre" value={formValues.titre} onChange={handleInputChange} placeholder="Titre" />
+            <input type="text" id="titre" name="titre" value={formValues.titre} onChange={handleInputChange} placeholder="Titre" />
+            {validationErrors.titre && <span className="error-message">{validationErrors.titre}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="descriptionIntro">Description Intro :</label>
             <input type="text" id="descriptionIntro" name="descriptionIntro" value={formValues.descriptionIntro} onChange={handleInputChange} placeholder="Description Intro" />
+            {validationErrors.descriptionIntro && <span className="error-message">{validationErrors.descriptionIntro}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="thumbnail">URL du thumbnail :</label>
             <input type="text" id="thumbnail" name="thumbnail" value={formValues.thumbnail} onChange={handleInputChange} placeholder="URL du thumbnail" />
+            {validationErrors.thumbnail && <span className="error-message">{validationErrors.thumbnail}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="annee">Année :</label>
             <input type="text" id="annee" name="annee" value={formValues.annee} onChange={handleInputChange} placeholder="Année" />
+            {validationErrors.annee && <span className="error-message">{validationErrors.annee}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="pourcentage">Pourcentage :</label>
             <input type="text" id="pourcentage" name="pourcentage" value={formValues.pourcentage} onChange={handleInputChange} placeholder="Pourcentage" />
+            {validationErrors.pourcentage && <span className="error-message">{validationErrors.pourcentage}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="technologies">Technologies utilisées :</label>
             <input type="text" id="technologies" name="technologies" value={formValues.technologies} onChange={handleInputChange} placeholder="Technologies utilisées (séparées par des virgules)" />
+            {validationErrors.technologies && <span className="error-message">{validationErrors.technologies}</span>}
           </div>
 
   
@@ -236,10 +286,12 @@ function Crudprojets() {
           <div className="form-group">
             <label htmlFor="motsCles">Mots Clés :</label>
             <textarea id="motsCles" name="motsCles" value={formValues.motsCles} onChange={handleInputChange} placeholder="Mots Clés (séparés par des virgules)" />
+            {validationErrors.motsCles && <span className="error-message">{validationErrors.motsCles}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="descriptionComplete">Description complète :</label>
             <textarea id="descriptionComplete" name="descriptionComplete" value={formValues.descriptionComplete} onChange={handleInputChange} placeholder="Description complète" />
+            {validationErrors.descriptionComplete && <span className="error-message">{validationErrors.descriptionComplete}</span>}
           </div>
           <div className="form-actions">
             <button type="submit">{selectedProject ? 'Modifier' : 'Créer'}</button>
@@ -260,6 +312,7 @@ function Crudprojets() {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

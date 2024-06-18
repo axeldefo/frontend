@@ -36,12 +36,12 @@ function Moi() {
     <div className="moi">
         <h2 className='nom'>Bonjour, je suis {data.nom}</h2>
         <h1 className='titre'>{data.salutation}</h1>
-        <p className='description'>{data.description}</p>
+        <p className='descriptio'>{data.description}</p>
         <div className="social">
-            <a href={data.linkedin} target="_blank" rel="noreferrer">
+            <a href={data.linkedin} target="_blank" rel="noreferrer" >
                 <BsLinkedin />
             </a>
-            <a href={data.github} target="_blank" rel="noreferrer">
+            <a href={data.github} target="_blank" rel="noreferrer" >
                 <FaGithub />
             </a>
         </div>
